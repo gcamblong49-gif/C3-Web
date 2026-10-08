@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Oficinas Robinson · C3 Arquitectura</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--black:#0a0a0a;--white:#ffffff;--mid:#888;}
+body{font-family:'Montserrat',sans-serif;background:var(--white);color:var(--black);}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid #eee;}
+.nav-logo img{height:36px;mix-blend-mode:multiply;}
+.nav-back{font-size:12px;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;color:var(--black);display:flex;align-items:center;gap:8px;}
+.nav-back::before{content:'←';font-size:16px;}
+.nav-back:hover{opacity:.5;}
+.hero{margin-top:77px;height:85vh;overflow:hidden;position:relative;}
+.hero img{width:100%;height:100%;object-fit:cover;display:block;object-position:center 55%;}
+.hero-over{position:absolute;bottom:0;left:0;right:0;padding:48px;background:linear-gradient(transparent,rgba(0,0,0,.65));color:#fff;}
+.hero-over h1{font-size:clamp(32px,5vw,64px);font-weight:300;letter-spacing:.06em;}
+.hero-over p{font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin-top:10px;opacity:.7;}
+.container{max-width:1200px;margin:0 auto;padding:0 48px;}
+.intro{padding:80px 0 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.label{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--mid);margin-bottom:32px;}
+.data-row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid #eee;font-size:13px;}
+.data-row span:first-child{color:var(--mid);letter-spacing:.08em;text-transform:uppercase;font-size:11px;}
+.intro-text p{font-size:15px;line-height:1.9;color:#333;margin-bottom:24px;}
+.nota{margin-top:32px;padding:20px 24px;border-left:2px solid #eee;font-size:12px;color:var(--mid);letter-spacing:.05em;line-height:1.7;}
+.section{padding:20px 0 80px;}
+.section-header{display:flex;align-items:center;gap:24px;margin-bottom:40px;}
+.section-header h2{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--mid);}
+.section-header::after{content:'';flex:1;height:1px;background:#eee;}
+.grid-full{display:grid;gap:3px;margin-bottom:3px;}
+.g-wide img{width:100%;height:65vh;object-fit:cover;display:block;}
+.g-two{grid-template-columns:1fr 1fr;}
+.g-two img{width:100%;height:52vh;object-fit:cover;display:block;}
+.plano-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
+.plano-wrap{background:#fafafa;border:1px solid #eee;padding:20px;display:flex;align-items:center;justify-content:center;}
+.plano-wrap img{width:100%;height:auto;object-fit:contain;display:block;}
+.proj-footer{background:var(--black);color:#fff;padding:80px 48px;display:flex;align-items:center;justify-content:space-between;}
+.proj-footer p{font-size:12px;letter-spacing:.15em;text-transform:uppercase;opacity:.5;}
+.proj-footer a{color:#fff;text-decoration:none;font-size:12px;letter-spacing:.15em;text-transform:uppercase;opacity:.5;}
+.proj-footer a:hover{opacity:1;}
+@media(max-width:768px){
+  nav{padding:16px 24px;}
+  .container{padding:0 24px;}
+  .intro{grid-template-columns:1fr;gap:40px;padding:48px 0;}
+  .g-two,.plano-grid{grid-template-columns:1fr;}
+  .hero{height:60vh;}
+  .proj-footer{flex-direction:column;gap:24px;padding:48px 24px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div style="display:flex;align-items:center;gap:28px;">
+    <a class="nav-back" href="c3_arquitectura.html">Volver al portfolio</a>
+    <a class="nav-back" href="info.html" style="opacity:.6;">Info</a>
+  </div>
+  <div class="nav-logo"><img src="img/robinson_01.jpg" alt="C3"></div>
+</nav>
+
+<section class="hero">
+  <img src="img/robinson_01.jpg" alt="Oficinas Robinson — Área de trabajo">
+  <div class="hero-over">
+    <h1>Oficinas Robinson</h1>
+    <p>Renderización y documentación para licitación · 2022</p>
+  </div>
+</section>
+
+<div class="container">
+
+  <div class="intro">
+    <div class="intro-data">
+      <p class="label">Ficha técnica</p>
+      <div class="data-row"><span>Proyecto</span><span>Oficinas Robinson</span></div>
+      <div class="data-row"><span>Encargo</span><span>Representación y documentación p/licitación</span></div>
+      <div class="data-row"><span>Año</span><span>2022</span></div>
+      <div class="data-row"><span>Programa</span><span>Oficinas corporativas</span></div>
+      <div class="data-row"><span>Servicios</span><span>Renders, visualización de interiores, documentación</span></div>
+      <div class="data-row"><span>Estudio</span><span>C3 Arquitectura</span></div>
+    </div>
+
+    <div class="intro-text">
+      <p class="label">Descripción</p>
+      <p>El encargo consistió en el desarrollo de documentación gráfica y visualizaciones arquitectónicas para el proyecto de oficinas Robinson, como representación técnica destinada a un proceso de licitación.</p>
+      <p>La propuesta espacial integra áreas operativas de trabajo, oficinas privadas, salas de reuniones, sectores de encuentro informal y espacios comunes, articulados alrededor de un núcleo central de circulación y servicios. La disposición del mobiliario y la flexibilidad de los distintos ambientes permiten interpretar las dinámicas de funcionamiento previstas para las oficinas.</p>
+      <p>A través de la renderización se trabajó la materialidad, iluminación, equipamiento y atmósfera interior, buscando transmitir con claridad las cualidades espaciales y la identidad del proyecto. La documentación desarrollada permitió comunicar la propuesta de manera integral, facilitando su interpretación y presentación en el marco del proceso licitatorio.</p>
+      <div class="nota">Encargo de representación arquitectónica y documentación gráfica para licitación. Servicios realizados: renderización arquitectónica, visualización de interiores y documentación técnica.</div>
+    </div>
+  </div>
+
+  <!-- RENDERS -->
+  <div class="section">
+    <div class="section-header"><h2>Renders</h2></div>
+
+    <div class="grid-full g-wide">
+      <img src="img/robinson_02.jpg" alt="Oficinas Robinson — Área operativa de trabajo">
+    </div>
+
+    <div class="grid-full g-two">
+      <img src="img/robinson_01.jpg" alt="Oficinas Robinson — Puestos de trabajo">
+      <img src="img/robinson_03.jpg" alt="Oficinas Robinson — Sector de encuentro informal">
+    </div>
+  </div>
+
+  <!-- PLANOS -->
+  <div class="section">
+    <div class="section-header"><h2>Planos</h2></div>
+    <div class="plano-grid">
+      <div class="plano-wrap"><img src="img/robinson_04.jpg" alt="Oficinas Robinson — Planta, organización funcional"></div>
+      <div class="plano-wrap"><img src="img/robinson_05.jpg" alt="Oficinas Robinson — Planta, alternativa de layout"></div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="proj-footer">
+  <p>C3 Arquitectura · Buenos Aires</p>
+  <a href="c3_arquitectura.html">← Volver al portfolio</a>
+</footer>
+
+</body>
+</html>
