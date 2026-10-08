@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Casa Merli · C3 Arquitectura</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--black:#0a0a0a;--white:#ffffff;--mid:#888;}
+body{font-family:'Montserrat',sans-serif;background:var(--white);color:var(--black);}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid #eee;}
+.nav-logo img{height:36px;mix-blend-mode:multiply;}
+.nav-back{font-size:12px;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;color:var(--black);display:flex;align-items:center;gap:8px;}
+.nav-back::before{content:'←';font-size:16px;}
+.nav-back:hover{opacity:.5;}
+.hero{margin-top:77px;height:85vh;overflow:hidden;position:relative;}
+.hero img{width:100%;height:100%;object-fit:cover;display:block;object-position:center 55%;}
+.hero-over{position:absolute;bottom:0;left:0;right:0;padding:48px;background:linear-gradient(transparent,rgba(0,0,0,.65));color:#fff;}
+.hero-over h1{font-size:clamp(32px,5vw,64px);font-weight:300;letter-spacing:.06em;}
+.hero-over p{font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin-top:10px;opacity:.7;}
+.container{max-width:1200px;margin:0 auto;padding:0 48px;}
+.intro{padding:80px 0 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.label{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--mid);margin-bottom:32px;}
+.data-row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid #eee;font-size:13px;}
+.data-row span:first-child{color:var(--mid);letter-spacing:.08em;text-transform:uppercase;font-size:11px;}
+.intro-text p{font-size:15px;line-height:1.9;color:#333;margin-bottom:24px;}
+.nota{margin-top:32px;padding:20px 24px;border-left:2px solid #eee;font-size:12px;color:var(--mid);letter-spacing:.05em;line-height:1.7;}
+.section{padding:20px 0 80px;}
+.section-header{display:flex;align-items:center;gap:24px;margin-bottom:40px;}
+.section-header h2{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--mid);}
+.section-header::after{content:'';flex:1;height:1px;background:#eee;}
+.grid-full{display:grid;gap:3px;margin-bottom:3px;}
+.g-wide img{width:100%;height:65vh;object-fit:cover;display:block;}
+.g-two{grid-template-columns:1fr 1fr;}
+.g-two img{width:100%;height:52vh;object-fit:cover;display:block;}
+.plano-wrap{background:#fafafa;border:1px solid #eee;padding:24px;display:flex;align-items:center;justify-content:center;}
+.plano-wrap img{width:100%;height:auto;object-fit:contain;display:block;}
+.proj-footer{background:var(--black);color:#fff;padding:80px 48px;display:flex;align-items:center;justify-content:space-between;}
+.proj-footer p{font-size:12px;letter-spacing:.15em;text-transform:uppercase;opacity:.5;}
+.proj-footer a{color:#fff;text-decoration:none;font-size:12px;letter-spacing:.15em;text-transform:uppercase;opacity:.5;}
+.proj-footer a:hover{opacity:1;}
+@media(max-width:768px){
+  nav{padding:16px 24px;}
+  .container{padding:0 24px;}
+  .intro{grid-template-columns:1fr;gap:40px;padding:48px 0;}
+  .g-two{grid-template-columns:1fr;}
+  .hero{height:60vh;}
+  .proj-footer{flex-direction:column;gap:24px;padding:48px 24px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div style="display:flex;align-items:center;gap:28px;">
+    <a class="nav-back" href="c3_arquitectura.html">Volver al portfolio</a>
+    <a class="nav-back" href="info.html" style="opacity:.6;">Info</a>
+  </div>
+  <div class="nav-logo"><img src="img/casa_merli_01.jpg" alt="C3"></div>
+</nav>
+
+<section class="hero">
+  <img src="img/casa_merli_01.jpg" alt="Casa Merli — Vista nocturna, pileta y jardín">
+  <div class="hero-over">
+    <h1>Casa Merli</h1>
+    <p>Vivienda unifamiliar · San Juan Chico, Buenos Aires · 2021</p>
+  </div>
+</section>
+
+<div class="container">
+
+  <div class="intro">
+    <div class="intro-data">
+      <p class="label">Ficha técnica</p>
+      <div class="data-row"><span>Proyecto</span><span>Vivienda Unifamiliar</span></div>
+      <div class="data-row"><span>Ubicación</span><span>San Juan Chico, Bs. As.</span></div>
+      <div class="data-row"><span>Año</span><span>2021</span></div>
+      <div class="data-row"><span>Programa</span><span>Planta baja + primer piso, pileta</span></div>
+      <div class="data-row"><span>Estudio</span><span>C3 Arquitectura</span></div>
+      <div class="data-row"><span>Representación</span><span>Renders</span></div>
+    </div>
+
+    <div class="intro-text">
+      <p class="label">Memoria descriptiva</p>
+      <p>Casa Merli organiza su programa en dos cuerpos de distinto carácter: un volumen macizo en tonos oscuros que contiene los ambientes sociales y se abre de lleno al jardín y la pileta, y un basamento más contenido, revestido en revoque claro, que resguarda la intimidad del acceso y la cochera. El contraste entre ambas masas —una pétrea y cerrada, otra liviana y permeable— estructura la lectura volumétrica de la vivienda desde la calle y desde el fondo del lote.</p>
+      <p>Las carpinterías de piso a techo en la planta baja disuelven el límite entre interior y exterior, mientras que un sistema de parasoles de madera filtra la luz y regula la privacidad hacia los frentes más expuestos, repitiéndose como motivo tanto en la fachada principal como en el cerramiento de la cochera. De noche, la iluminación embutida en el perímetro del jardín y el reflejo de la pileta terminan de definir el carácter doméstico y a la vez escenográfico de la casa.</p>
+      <p>En planta, la vivienda se resuelve en dos niveles: en planta baja, living, comedor, cocina y un dormitorio en suite se abren hacia una galería y la pileta; en el primer piso, un estar íntimo articula los dormitorios restantes. El tratamiento paisajístico —césped, forestación perimetral y canteros de especies autóctonas— termina de integrar la arquitectura al entorno de barrio parque.</p>
+    </div>
+  </div>
+
+  <!-- RENDERS -->
+  <div class="section">
+    <div class="section-header"><h2>Renders</h2></div>
+
+    <div class="grid-full g-wide">
+      <img src="img/casa_merli_02.jpg" alt="Casa Merli — Acceso y cochera, vista diurna">
+    </div>
+
+    <div class="grid-full g-two">
+      <img src="img/casa_merli_01.jpg" alt="Casa Merli — Pileta y jardín, vista nocturna">
+      <img src="img/casa_merli_03.jpg" alt="Casa Merli — Fachada, vista diurna">
+    </div>
+  </div>
+
+  <!-- PLANOS -->
+  <div class="section">
+    <div class="section-header"><h2>Planos</h2></div>
+    <div class="plano-wrap">
+      <img src="img/casa_merli_04.jpg" alt="Casa Merli — Plantas y vistas">
+    </div>
+  </div>
+
+</div>
+
+<footer class="proj-footer">
+  <p>C3 Arquitectura · Buenos Aires</p>
+  <a href="c3_arquitectura.html">← Volver al portfolio</a>
+</footer>
+
+</body>
+</html>
