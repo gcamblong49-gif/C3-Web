@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ex Pediátrico · C3 Arquitectura</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--black:#0a0a0a;--white:#ffffff;--mid:#888;}
+body{font-family:'Montserrat',sans-serif;background:var(--white);color:var(--black);}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid #eee;}
+.nav-logo img{height:36px;mix-blend-mode:multiply;}
+.nav-back{font-size:12px;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;color:var(--black);display:flex;align-items:center;gap:8px;}
+.nav-back::before{content:'←';font-size:16px;}
+.nav-back:hover{opacity:.5;}
+.hero{margin-top:77px;height:85vh;overflow:hidden;position:relative;}
+.hero img{width:100%;height:100%;object-fit:cover;display:block;object-position:center 55%;}
+.hero-over{position:absolute;bottom:0;left:0;right:0;padding:48px;background:linear-gradient(transparent,rgba(0,0,0,.65));color:#fff;}
+.hero-over h1{font-size:clamp(32px,5vw,64px);font-weight:300;letter-spacing:.06em;}
+.hero-over p{font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin-top:10px;opacity:.7;}
+.badge{display:inline-block;margin-top:18px;padding:6px 14px;border:1px solid rgba(255,255,255,.5);font-size:10px;letter-spacing:.2em;text-transform:uppercase;}
+.container{max-width:1200px;margin:0 auto;padding:0 48px;}
+.intro{padding:80px 0 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.label{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--mid);margin-bottom:32px;}
+.data-row{display:flex;justify-content:space-between;gap:24px;padding:14px 0;border-bottom:1px solid #eee;font-size:13px;}
+.data-row span:first-child{color:var(--mid);letter-spacing:.08em;text-transform:uppercase;font-size:11px;flex-shrink:0;}
+.data-row span:last-child{text-align:right;}
+.intro-text p{font-size:15px;line-height:1.9;color:#333;margin-bottom:24px;}
+.nota{margin-top:32px;padding:20px 24px;border-left:2px solid #eee;font-size:12px;color:var(--mid);letter-spacing:.05em;line-height:1.7;}
+.nota a{color:var(--black);}
+.section{padding:20px 0 80px;}
+.section-header{display:flex;align-items:center;gap:24px;margin-bottom:40px;}
+.section-header h2{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--mid);}
+.section-header::after{content:'';flex:1;height:1px;background:#eee;}
+.grid-full{display:grid;gap:3px;margin-bottom:3px;}
+.g-wide img{width:100%;height:65vh;object-fit:cover;display:block;}
+.g-two{grid-template-columns:1fr 1fr;}
+.g-two img{width:100%;height:52vh;object-fit:cover;display:block;}
+.g-four{grid-template-columns:repeat(4,1fr);}
+.g-four img{width:100%;height:46vh;object-fit:cover;display:block;}
+.plano-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
+.plano-wrap{background:#fafafa;border:1px solid #eee;padding:20px;display:flex;align-items:center;justify-content:center;}
+.plano-wrap img{width:100%;height:auto;object-fit:contain;display:block;}
+.proj-footer{background:var(--black);color:#fff;padding:80px 48px;display:flex;align-items:center;justify-content:space-between;}
+.proj-footer p{font-size:12px;letter-spacing:.15em;text-transform:uppercase;opacity:.5;}
+.proj-footer a{color:#fff;text-decoration:none;font-size:12px;letter-spacing:.15em;text-transform:uppercase;opacity:.5;}
+.proj-footer a:hover{opacity:1;}
+@media(max-width:768px){
+  nav{padding:16px 24px;}
+  .container{padding:0 24px;}
+  .intro{grid-template-columns:1fr;gap:40px;padding:48px 0;}
+  .g-two,.g-four,.plano-grid{grid-template-columns:1fr;}
+  .hero{height:60vh;}
+  .proj-footer{flex-direction:column;gap:24px;padding:48px 24px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div style="display:flex;align-items:center;gap:28px;">
+    <a class="nav-back" href="c3_arquitectura.html">Volver al portfolio</a>
+    <a class="nav-back" href="info.html" style="opacity:.6;">Info</a>
+  </div>
+  <div class="nav-logo"><img src="img/ex_pediatrico_01.jpg" alt="C3"></div>
+</nav>
+
+<section class="hero">
+  <img src="img/ex_pediatrico_01.jpg" alt="Ex Pediátrico — Vista aérea nocturna de las torres">
+  <div class="hero-over">
+    <h1>Ex Pediátrico</h1>
+    <p>Concurso Nacional de Ideas · Resistencia, Chaco · 2021</p>
+    <span class="badge">1er Premio</span>
+  </div>
+</section>
+
+<div class="container">
+
+  <div class="intro">
+    <div class="intro-data">
+      <p class="label">Ficha técnica</p>
+      <div class="data-row"><span>Concurso</span><span>Desarrollo Urbanístico Ex Pediátrico</span></div>
+      <div class="data-row"><span>Organiza</span><span>CPAUCH · IPDUV</span></div>
+      <div class="data-row"><span>Auspicia</span><span>FADEA · INSSSEP</span></div>
+      <div class="data-row"><span>Ubicación</span><span>Resistencia, Chaco</span></div>
+      <div class="data-row"><span>Resultado</span><span>1er Premio (sobre 113 propuestas)</span></div>
+      <div class="data-row"><span>Autores</span><span>E. López Albarellos, F. Montalbano, F. Hesayne</span></div>
+      <div class="data-row"><span>Equipo</span><span>P. Calvo, P. Polyblank, M. Galindo, E. García Espil, G. Gilli, Guillermo Camblong, M. Cortes Guerrieri, M. A. Ramos, M. Bernal</span></div>
+      <div class="data-row"><span>Programa</span><span>Usos mixtos, vivienda y equipamiento</span></div>
+    </div>
+
+    <div class="intro-text">
+      <p class="label">Memoria descriptiva</p>
+      <p>Sobre el predio del ex Hospital Pediátrico de Resistencia —casi una manzana completa vacante en una zona residencial en crecimiento— la propuesta plantea un edificio que "vive hacia adentro": un gran patio central funciona como regulador climático, integrando los árboles existentes, un reservorio de restauración ecológica y las ruinas del hospital como memoria del sitio.</p>
+      <p>El programa reúne usos mixtos en el basamento —locales comerciales, gastronomía, juegos infantiles, oficinas del INSSSEP y una escuela de artes escultóricas y oficios con talleres, aulas, microcine, sala de exposiciones y biblioteca— junto a tres torres de vivienda, una de ellas de gran altura, articuladas por una pantalla interactiva central.</p>
+      <p>La estrategia de sustentabilidad combina corredores de aire cruzados, aleros perimetrales, ventilación cruzada que evita el uso de aire acondicionado, un efecto Venturi en espiral, parasoles corredizos en los balcones, huertas en la terraza del basamento y pérgolas con paneles solares. El proyecto se piensa por etapas, a partir de un módulo de 10 metros de frente de lote.</p>
+      <div class="nota">Concurso Nacional de Ideas organizado por el Colegio Profesional de Arquitectura y Urbanismo de Chaco (CPAUCH) y promovido por el IPDUV, con auspicio de FADEA e INSSSEP. Primer premio sobre 113 propuestas recibidas. Guillermo Camblong (C3 Arquitectura) integró el equipo de proyecto ganador. Más información: <a href="https://www.archdaily.com/es/960398/desarrollo-urbanistico-ex-pediatrico-los-proyectos-que-revitalizaran-un-vacio-urbano-en-chaco-argentina" target="_blank" rel="noopener">publicación en ArchDaily</a>.</div>
+    </div>
+  </div>
+
+  <!-- RENDERS -->
+  <div class="section">
+    <div class="section-header"><h2>Renders</h2></div>
+
+    <div class="grid-full g-wide">
+      <img src="img/ex_pediatrico_02.jpg" alt="Ex Pediátrico — Vista aérea del patio central">
+    </div>
+
+    <div class="grid-full g-two">
+      <img src="img/ex_pediatrico_07.jpg" alt="Ex Pediátrico — Patio central, vista peatonal">
+      <img src="img/ex_pediatrico_08.jpg" alt="Ex Pediátrico — Esquina, vista desde la calle">
+    </div>
+  </div>
+
+  <!-- VISTAS Y CORTES -->
+  <div class="section">
+    <div class="section-header"><h2>Vistas y cortes</h2></div>
+    <div class="plano-grid">
+      <div class="plano-wrap"><img src="img/ex_pediatrico_03.jpg" alt="Vista Lisandro de la Torre"></div>
+      <div class="plano-wrap"><img src="img/ex_pediatrico_04.jpg" alt="Vista Arturo Illia"></div>
+      <div class="plano-wrap"><img src="img/ex_pediatrico_05.jpg" alt="Vista Acosta"></div>
+      <div class="plano-wrap"><img src="img/ex_pediatrico_06.jpg" alt="Corte B"></div>
+    </div>
+  </div>
+
+  <!-- PLANOS -->
+  <div class="section">
+    <div class="section-header"><h2>Plantas</h2></div>
+    <div class="plano-grid">
+      <div class="plano-wrap"><img src="img/ex_pediatrico_09.jpg" alt="Primer piso — INSSSEP, biblioteca, cine"></div>
+      <div class="plano-wrap"><img src="img/ex_pediatrico_10.jpg" alt="Segundo piso — Escuela de artes escultóricas y oficios"></div>
+      <div class="plano-wrap"><img src="img/ex_pediatrico_11.jpg" alt="Tercer piso — Estacionamiento viviendas"></div>
+      <div class="plano-wrap"><img src="img/ex_pediatrico_12.jpg" alt="Cuarto piso — Amenities"></div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="proj-footer">
+  <p>C3 Arquitectura · Buenos Aires</p>
+  <a href="c3_arquitectura.html">← Volver al portfolio</a>
+</footer>
+
+</body>
+</html>
