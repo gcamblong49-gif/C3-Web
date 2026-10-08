@@ -61,15 +61,20 @@
   .pilar span { color: var(--gray); transition: color .3s, transform .3s; display: inline-block; }
   .pilar:hover span { color: var(--black); transform: translateX(4px); }
 
-  .proj-section { padding: 48px 0 140px; border-top: none; }
-  .proj-stack { display: flex; flex-direction: column; gap: 110px; max-width: 1180px; margin: 0 auto; padding: 0 52px; }
-  .proj-row { position: relative; display: block; width: 100%; text-decoration: none; color: inherit; cursor: pointer; }
-  .proj-img-wrap { overflow: hidden; background: #f4f4f4; }
-  .proj-img-wrap img { display: block; width: 100%; height: auto; transition: transform .7s ease; }
-  .proj-row:hover .proj-img-wrap img { transform: scale(1.015); }
-  .proj-cap { display: flex; justify-content: space-between; align-items: baseline; margin-top: 20px; }
-  .proj-cap h3 { font-size: 15px; font-weight: 400; letter-spacing: .01em; color: var(--black); }
-  .proj-cap p { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--gray); }
+  .proj-section { padding: 48px 0 160px; border-top: none; }
+  .proj-carousel { max-width: 1300px; margin: 0 auto; padding: 0 52px; }
+  .carousel-stage { position: relative; height: 66vh; min-height: 380px; max-height: 760px; }
+  .proj-slide { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-decoration: none; color: inherit; opacity: 0; transition: opacity 1.1s ease; pointer-events: none; cursor: pointer; }
+  .proj-slide.active { opacity: 1; pointer-events: auto; }
+  .proj-slide img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; display: block; }
+  .slide-cap { position: absolute; left: 0; right: 0; bottom: -48px; display: flex; justify-content: space-between; align-items: baseline; gap: 20px; opacity: 0; transition: opacity .6s ease .15s; }
+  .proj-slide.active .slide-cap { opacity: 1; }
+  .slide-cap h3 { font-size: 15px; font-weight: 400; letter-spacing: .01em; color: var(--black); }
+  .slide-cap p { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--gray); }
+  .carousel-dots { display: flex; justify-content: center; gap: 10px; margin-top: 88px; }
+  .carousel-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--line); border: none; padding: 0; cursor: pointer; transition: background .3s, transform .3s; }
+  .carousel-dot.active { background: var(--black); transform: scale(1.35); }
+  .carousel-dot:hover { background: var(--gray); }
 
   .contacto { background: var(--black); color: var(--white); padding: 120px 52px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; border-top: 1px solid var(--line); }
   .contacto h2 { font-size: clamp(40px,5.5vw,80px); font-weight: 200; line-height: 1.05; letter-spacing: -.03em; margin-bottom: 64px; }
@@ -109,7 +114,9 @@
     .nav-logo-sub { font-size: 11px; }
     .nav-info { font-size: 13px; }
     .nav-links { display: none; }
-    .proj-stack { padding: 0 24px; gap: 64px; }
+    .proj-carousel { padding: 0 24px; }
+    .carousel-stage { height: 42vh; min-height: 300px; }
+    .carousel-dots { margin-top: 60px; }
     .divider { grid-template-columns: 1fr 1fr; }
     .divider-item:nth-child(2) { border-right: none; }
     .divider-item:nth-child(3), .divider-item:nth-child(4) { border-top: 1px solid var(--line); }
@@ -141,39 +148,42 @@
 </nav>
 
 <section class="proj-section" id="proyectos">
-  <div class="proj-stack">
-    <a class="proj-row reveal" href="ex_pediatrico.html">
-      <div class="proj-img-wrap"><img src="img/ex_pediatrico_01.jpg" alt="Ex Pediatrico"></div>
-      <div class="proj-cap"><h3>Ex Pediátrico</h3><p>Concurso Nacional de Ideas · 1er Premio · Resistencia, Chaco · 2021</p></div>
-    </a>
-    <a class="proj-row reveal" href="moro_pratto.html">
-      <div class="proj-img-wrap"><img src="img/c3_arquitectura_02.jpg" alt="Moro Pratto"></div>
-      <div class="proj-cap"><h3>Moro — Pratto</h3><p>Reforma Integral · Buenos Aires · 2024</p></div>
-    </a>
-    <a class="proj-row reveal d1" href="el_cortijo.html">
-      <div class="proj-img-wrap"><img src="img/c3_arquitectura_03.jpg" alt="El Cortijo"></div>
-      <div class="proj-cap"><h3>El Cortijo</h3><p>Vivienda · Buenos Aires · 2019</p></div>
-    </a>
-    <div class="proj-row reveal d2" style="cursor:default;">
-      <div class="proj-img-wrap"><img src="img/c3_arquitectura_04.jpg" alt="Mariano Acha"></div>
-      <div class="proj-cap"><h3>Mariano Acha</h3><p>Reforma Cocina · Buenos Aires · 2026</p></div>
+  <div class="proj-carousel">
+    <div class="carousel-stage" id="carouselStage">
+      <a class="proj-slide active" href="ex_pediatrico.html">
+        <img src="img/ex_pediatrico_01.jpg" alt="Ex Pediátrico">
+        <div class="slide-cap"><h3>Ex Pediátrico</h3><p>Concurso Nacional de Ideas · 1er Premio · Resistencia, Chaco · 2021</p></div>
+      </a>
+      <a class="proj-slide" href="moro_pratto.html">
+        <img src="img/c3_arquitectura_02.jpg" alt="Moro Pratto">
+        <div class="slide-cap"><h3>Moro — Pratto</h3><p>Reforma Integral · Buenos Aires · 2024</p></div>
+      </a>
+      <a class="proj-slide" href="el_cortijo.html">
+        <img src="img/c3_arquitectura_03.jpg" alt="El Cortijo">
+        <div class="slide-cap"><h3>El Cortijo</h3><p>Vivienda · Buenos Aires · 2019</p></div>
+      </a>
+      <div class="proj-slide" style="cursor:default;">
+        <img src="img/c3_arquitectura_04.jpg" alt="Mariano Acha">
+        <div class="slide-cap"><h3>Mariano Acha</h3><p>Reforma Cocina · Buenos Aires · 2026</p></div>
+      </div>
+      <a class="proj-slide" href="casa_merli.html">
+        <img src="img/casa_merli_01.jpg" alt="Casa Merli">
+        <div class="slide-cap"><h3>Casa Merli</h3><p>Vivienda · San Juan Chico · 2021</p></div>
+      </a>
+      <a class="proj-slide" href="nautico_galicia.html">
+        <img src="img/c3_arquitectura_06.jpg" alt="Náutico Galicia">
+        <div class="slide-cap"><h3>Náutico Galicia</h3><p>Proyecto · Buenos Aires · 2021</p></div>
+      </a>
+      <a class="proj-slide" href="soler.html">
+        <img src="img/c3_arquitectura_07.jpg" alt="Soler">
+        <div class="slide-cap"><h3>Soler</h3><p>Edificio Residencial · Palermo, CABA · 2020–2023</p></div>
+      </a>
+      <a class="proj-slide" href="robinson.html">
+        <img src="img/robinson_01.jpg" alt="Oficinas Robinson">
+        <div class="slide-cap"><h3>Oficinas Robinson</h3><p>Renderización y Documentación p/Licitación · 2022</p></div>
+      </a>
     </div>
-    <a class="proj-row reveal d1" href="casa_merli.html">
-      <div class="proj-img-wrap"><img src="img/casa_merli_01.jpg" alt="Casa Merli"></div>
-      <div class="proj-cap"><h3>Casa Merli</h3><p>Vivienda · San Juan Chico · 2021</p></div>
-    </a>
-    <a class="proj-row reveal d2" href="nautico_galicia.html">
-      <div class="proj-img-wrap"><img src="img/c3_arquitectura_06.jpg" alt="Náutico Galicia"></div>
-      <div class="proj-cap"><h3>Náutico Galicia</h3><p>Proyecto · Buenos Aires · 2021</p></div>
-    </a>
-    <a class="proj-row reveal d3" href="soler.html">
-      <div class="proj-img-wrap"><img src="img/c3_arquitectura_07.jpg" alt="Soler"></div>
-      <div class="proj-cap"><h3>Soler</h3><p>Edificio Residencial · Palermo, CABA · 2020–2023</p></div>
-    </a>
-    <a class="proj-row reveal" href="robinson.html">
-      <div class="proj-img-wrap"><img src="img/robinson_01.jpg" alt="Oficinas Robinson"></div>
-      <div class="proj-cap"><h3>Oficinas Robinson</h3><p>Renderización y Documentación p/Licitación · 2022</p></div>
-    </a>
+    <div class="carousel-dots" id="carouselDots"></div>
   </div>
 </section>
 
@@ -193,7 +203,7 @@ document.addEventListener('mousemove', e => {
   cur.style.left=mx+'px'; cur.style.top=my+'px';
 });
 (function tick(){ rx+=(mx-rx)*.13; ry+=(my-ry)*.13; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(tick); })();
-document.querySelectorAll('a,.srv-item,.proj-row,.pilar').forEach(el=>{
+document.querySelectorAll('a,.srv-item,.proj-slide,.pilar').forEach(el=>{
   el.addEventListener('mouseenter',()=>{cur.classList.add('hov');ring.classList.add('hov');});
   el.addEventListener('mouseleave',()=>{cur.classList.remove('hov');ring.classList.remove('hov');});
 });
@@ -201,6 +211,37 @@ const obs = new IntersectionObserver(entries=>{
   entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('vis'); });
 },{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+(function(){
+  const stage = document.getElementById('carouselStage');
+  const dotsWrap = document.getElementById('carouselDots');
+  if(!stage || !dotsWrap) return;
+  const slides = Array.from(stage.children);
+  let idx = 0, timer;
+  const DURATION = 4500;
+
+  slides.forEach((s, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Ver obra ' + (i + 1));
+    dot.addEventListener('click', () => { goTo(i); restart(); });
+    dotsWrap.appendChild(dot);
+  });
+  const dots = Array.from(dotsWrap.children);
+
+  function goTo(i){
+    slides[idx].classList.remove('active');
+    dots[idx].classList.remove('active');
+    idx = (i + slides.length) % slides.length;
+    slides[idx].classList.add('active');
+    dots[idx].classList.add('active');
+  }
+  function next(){ goTo(idx + 1); }
+  function restart(){ clearInterval(timer); timer = setInterval(next, DURATION); }
+  restart();
+  stage.addEventListener('mouseenter', () => clearInterval(timer));
+  stage.addEventListener('mouseleave', restart);
+})();
 </script>
 </body>
 </html>
