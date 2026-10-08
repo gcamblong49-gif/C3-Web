@@ -75,6 +75,11 @@
   .carousel-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--line); border: none; padding: 0; cursor: pointer; transition: background .3s, transform .3s; }
   .carousel-dot.active { background: var(--black); transform: scale(1.35); }
   .carousel-dot:hover { background: var(--gray); }
+  .carousel-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: rgba(255,255,255,.85); backdrop-filter: blur(4px); color: var(--black); font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .3s, border-color .3s; }
+  .carousel-arrow:hover { background: var(--white); border-color: var(--black); }
+  .carousel-prev { left: 8px; }
+  .carousel-next { right: 8px; }
+  @media(max-width:900px){ .carousel-arrow { width: 36px; height: 36px; font-size: 14px; } }
 
   .contacto { background: var(--black); color: var(--white); padding: 120px 52px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; border-top: 1px solid var(--line); }
   .contacto h2 { font-size: clamp(40px,5.5vw,80px); font-weight: 200; line-height: 1.05; letter-spacing: -.03em; margin-bottom: 64px; }
@@ -150,22 +155,20 @@
 <section class="proj-section" id="proyectos">
   <div class="proj-carousel">
     <div class="carousel-stage" id="carouselStage">
+      <button class="carousel-arrow carousel-prev" id="carouselPrev" aria-label="Obra anterior">&#8592;</button>
+      <button class="carousel-arrow carousel-next" id="carouselNext" aria-label="Obra siguiente">&#8594;</button>
       <a class="proj-slide active" href="ex_pediatrico.html">
         <img src="img/ex_pediatrico_01.jpg" alt="Ex Pediátrico">
         <div class="slide-cap"><h3>Ex Pediátrico</h3><p>Concurso Nacional de Ideas · 1er Premio · Resistencia, Chaco · 2021</p></div>
       </a>
       <a class="proj-slide" href="moro_pratto.html">
-        <img src="img/c3_arquitectura_02.jpg" alt="Moro Pratto">
+        <img src="img/moro_pratto_07.jpg" alt="Moro Pratto">
         <div class="slide-cap"><h3>Moro — Pratto</h3><p>Reforma Integral · Buenos Aires · 2024</p></div>
       </a>
       <a class="proj-slide" href="el_cortijo.html">
         <img src="img/c3_arquitectura_03.jpg" alt="El Cortijo">
         <div class="slide-cap"><h3>El Cortijo</h3><p>Vivienda · Buenos Aires · 2019</p></div>
       </a>
-      <div class="proj-slide" style="cursor:default;">
-        <img src="img/c3_arquitectura_04.jpg" alt="Mariano Acha">
-        <div class="slide-cap"><h3>Mariano Acha</h3><p>Reforma Cocina · Buenos Aires · 2026</p></div>
-      </div>
       <a class="proj-slide" href="casa_merli.html">
         <img src="img/casa_merli_01.jpg" alt="Casa Merli">
         <div class="slide-cap"><h3>Casa Merli</h3><p>Vivienda · San Juan Chico · 2021</p></div>
@@ -216,9 +219,11 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   const stage = document.getElementById('carouselStage');
   const dotsWrap = document.getElementById('carouselDots');
   if(!stage || !dotsWrap) return;
-  const slides = Array.from(stage.children);
+  const slides = Array.from(stage.querySelectorAll('.proj-slide'));
+  const prevBtn = document.getElementById('carouselPrev');
+  const nextBtn = document.getElementById('carouselNext');
   let idx = 0, timer;
-  const DURATION = 4500;
+  const DURATION = 2600;
 
   slides.forEach((s, i) => {
     const dot = document.createElement('button');
@@ -237,7 +242,10 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
     dots[idx].classList.add('active');
   }
   function next(){ goTo(idx + 1); }
+  function prev(){ goTo(idx - 1); }
   function restart(){ clearInterval(timer); timer = setInterval(next, DURATION); }
+  if(nextBtn) nextBtn.addEventListener('click', (e) => { e.preventDefault(); next(); restart(); });
+  if(prevBtn) prevBtn.addEventListener('click', (e) => { e.preventDefault(); prev(); restart(); });
   restart();
   stage.addEventListener('mouseenter', () => clearInterval(timer));
   stage.addEventListener('mouseleave', restart);
