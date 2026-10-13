@@ -10,62 +10,14 @@
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   :root { --black: #0a0a0a; --white: #ffffff; --gray: #888; --line: rgba(10,10,10,0.1); }
   html { scroll-behavior: smooth; }
-  body { background: var(--white); color: var(--black); font-family: 'Poppins', sans-serif; font-weight: 300; overflow-x: hidden; cursor: none; }
+  body { background: var(--white); color: var(--black); font-family: 'Poppins', sans-serif; font-weight: 300; overflow-x: hidden; padding-top: 164px; }
 
-  .cursor { position: fixed; width: 7px; height: 7px; background: var(--black); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width .25s, height .25s; }
-  .cursor-ring { position: fixed; width: 32px; height: 32px; border: 1px solid rgba(10,10,10,.35); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width .3s, height .3s; }
-  .cursor.hov { width: 14px; height: 14px; }
-  .cursor-ring.hov { width: 52px; height: 52px; }
-
-  nav { position: relative; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 24px 52px; background: var(--white); border-bottom: 1px solid var(--line); }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 32px 52px; background: rgba(255,255,255,.94); backdrop-filter: blur(6px); }
   nav.scrolled { background: var(--white); }
-  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; cursor: none; }
-  .nav-logo img { width: 26px; height: auto; filter: none; }
-  .nav-logo-mark { font-size: 22px; font-weight: 600; letter-spacing: -.01em; color: var(--black); line-height: 1; }
-  .nav-logo-sub { font-size: 12px; font-weight: 600; letter-spacing: .01em; color: var(--gray); margin-left: 4px; text-transform: lowercase; }
-  .nav-links { display: flex; gap: 44px; list-style: none; }
-  .nav-links a { text-decoration: none; color: var(--black); font-size: 11px; letter-spacing: normal; text-transform: none; font-weight: 300; position: relative; cursor: none; }
-  .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: var(--black); transition: width .35s; }
-  .nav-links a:hover::after { width: 100%; }
-
-  /* HERO */
-  .hero { min-height: 88vh; position: relative; display: flex; align-items: flex-end; overflow: hidden; }
-  .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(.9) contrast(1.05); z-index: 0; }
-  .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.7) 0%, rgba(0,0,0,.25) 50%, rgba(0,0,0,.05) 100%); z-index: 1; }
-  .hero-left { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; padding: 150px 60px 90px; max-width: 760px; }
-  .hero-eyebrow { font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: var(--gray); margin-bottom: 40px; font-weight: 400; opacity: 0; animation: fadeUp .8s ease .2s forwards; }
-
-  /* SLOGAN 3 C's */
-  .hero-slogan { margin-bottom: 52px; opacity: 0; animation: fadeUp 1s ease .4s forwards; }
-  .slogan-line { display: flex; align-items: baseline; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); }
-  .slogan-line:first-child { border-top: 1px solid var(--line); }
-  .slogan-c { font-size: clamp(52px, 7vw, 96px); font-weight: 200; letter-spacing: -.04em; line-height: 1; color: var(--black); }
-  .slogan-word { font-size: clamp(14px, 1.8vw, 22px); font-weight: 300; letter-spacing: .04em; color: var(--gray); align-self: center; padding-bottom: 4px; }
-
-  .hero-desc { font-size: 13px; line-height: 1.9; color: #555; max-width: 380px; font-weight: 300; opacity: 0; animation: fadeUp .9s ease .7s forwards; border-left: 1px solid var(--line); padding-left: 24px; }
-  .hero-cta { display: inline-flex; align-items: center; gap: 14px; margin-top: 48px; font-size: 10px; letter-spacing: .22em; text-transform: uppercase; font-weight: 500; text-decoration: none; color: var(--black); opacity: 0; animation: fadeUp .9s ease .9s forwards; cursor: none; }
-  .hero-cta-line { width: 40px; height: 1px; background: var(--black); transition: width .4s; }
-  .hero-cta:hover .hero-cta-line { width: 64px; }
-
-  .hero-right { display: none; }
-  .hero-logo-wrap { display: none; }
-
-  .hero-bottom { position: absolute; bottom: 28px; left: 60px; right: 60px; z-index: 2; display: flex; justify-content: space-between; align-items: center; font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.65); opacity: 0; animation: fadeIn .8s ease 1.4s forwards; }
-  .scroll-ind { display: flex; align-items: center; gap: 12px; }
-  .scroll-line { width: 40px; height: 1px; background: rgba(255,255,255,.4); overflow: hidden; position: relative; }
-  .scroll-line::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: #fff; animation: scan 2.2s ease 1.5s infinite; }
-  .hero .hero-eyebrow { color: rgba(255,255,255,.7); }
-  .hero .slogan-c { color: #fff; }
-  .hero .slogan-word { color: rgba(255,255,255,.55); }
-  .hero .slogan-line { border-color: rgba(255,255,255,.18); }
-  .hero .hero-desc { color: rgba(255,255,255,.65); border-left-color: rgba(255,255,255,.2); }
-  .hero .hero-cta { color: #fff; }
-  .hero .hero-cta-line { background: #fff; }
-
-  .divider { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--line); }
-  .divider-item { padding: 26px 52px; border-right: 1px solid var(--line); display: flex; align-items: center; gap: 14px; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--gray); font-weight: 400; }
-  .divider-item:last-child { border-right: none; }
-  .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--black); flex-shrink: 0; }
+  .nav-logo { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; text-decoration: none; }
+  .nav-logo-mark { font-size: 54px; font-weight: 700; letter-spacing: -.01em; color: var(--black); line-height: 1; text-transform: uppercase; }
+  .nav-logo-sub { font-size: 15px; font-weight: 500; letter-spacing: .13em; color: var(--gray); text-transform: uppercase; }
+  .nav-info { text-decoration: none; color: var(--black); font-size: 18px; font-weight: 400; letter-spacing: .09em; text-transform: uppercase; }
 
   .section { padding: 120px 52px; border-top: 1px solid var(--line); }
   .sec-label { font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: var(--gray); font-weight: 500; margin-bottom: 56px; display: flex; align-items: center; gap: 16px; }
@@ -73,210 +25,131 @@
   .sec-title { font-size: clamp(32px,4vw,56px); font-weight: 200; letter-spacing: -.03em; line-height: 1.1; }
   .sec-title strong { font-weight: 500; }
 
-  .srv-grid { display: grid; grid-template-columns: repeat(5,1fr); border-top: 1px solid var(--line); margin-top: 72px; }
-  .srv-item { padding: 52px 32px 52px 0; border-right: 1px solid var(--line); transition: background .4s; }
-  .srv-item:last-child { border-right: none; }
-  .srv-item:hover { background: var(--black); }
-  .srv-item:hover .srv-n, .srv-item:hover .srv-name, .srv-item:hover .srv-desc { color: var(--white); }
-  .srv-item:hover .srv-ln { background: rgba(255,255,255,.2); }
-  .srv-n { font-size: 9px; letter-spacing: .22em; color: var(--gray); margin-bottom: 28px; font-weight: 500; transition: color .4s; }
-  .srv-ln { width: 20px; height: 1px; background: var(--black); margin-bottom: 20px; transition: background .4s; }
-  .srv-name { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; line-height: 1.6; transition: color .4s; }
-  .srv-desc { font-size: 11px; color: var(--gray); margin-top: 14px; line-height: 1.8; font-weight: 300; transition: color .4s; }
+  .srv-list { border-top: 1px solid var(--line); margin-top: 56px; }
+  .srv-row { display: grid; grid-template-columns: 60px 280px 1fr; gap: 32px; align-items: baseline; padding: 40px 0; border-bottom: 1px solid var(--line); }
+  .srv-n { font-size: 13px; color: var(--gray); font-weight: 500; }
+  .srv-name { font-size: 15px; letter-spacing: .08em; text-transform: uppercase; font-weight: 500; }
+  .srv-desc { font-size: 14px; color: #555; line-height: 1.8; font-weight: 300; max-width: 620px; }
 
   .nos-wrap { border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1fr; }
   .nos-left { padding: 120px 72px 120px 52px; border-right: 1px solid var(--line); }
   .nos-right { padding: 120px 52px 120px 72px; display: flex; flex-direction: column; justify-content: center; }
-  .nos-text { font-size: clamp(16px,1.8vw,24px); font-weight: 200; line-height: 1.75; letter-spacing: -.01em; margin-top: 48px; }
-  .nos-text strong { font-weight: 500; border-bottom: 1px solid var(--black); }
-  .pilares { list-style: none; margin-top: 8px; }
-  .pilar { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; border-bottom: 1px solid var(--line); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; font-weight: 400; transition: padding-left .3s; }
-  .pilar:hover { padding-left: 8px; }
-  .pilar span { color: var(--gray); transition: color .3s, transform .3s; display: inline-block; }
-  .pilar:hover span { color: var(--black); transform: translateX(4px); }
+  .nos-text { font-size: clamp(16px,1.8vw,22px); font-weight: 200; line-height: 1.8; letter-spacing: -.01em; margin-top: 48px; }
+  .nos-text strong { font-weight: 500; }
+  .credential { padding: 28px 0; border-top: 1px solid var(--line); }
+  .credential:first-child { border-top: none; padding-top: 0; }
+  .cred-name { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); margin-bottom: 10px; font-weight: 500; }
+  .cred-detail { font-size: 14px; line-height: 1.7; font-weight: 300; }
 
-  .proj-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 72px; }
-  .proj-card { aspect-ratio: 3/4; background: #dddcd8; position: relative; overflow: hidden; overflow: hidden; cursor: none; }
-  .proj-card:hover .proj-over { opacity: 1; }
-  .proj-over { position: absolute; inset: 0; background: rgba(10,10,10,.88); opacity: 0; transition: opacity .45s; display: flex; flex-direction: column; justify-content: flex-end; padding: 36px; }
-  .proj-soon { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: #aaa; }
-  .proj-over h3 { color: var(--white); font-size: 16px; font-weight: 300; letter-spacing: .05em; margin-bottom: 6px; }
-  .proj-over p { color: rgba(255,255,255,.4); font-size: 9px; letter-spacing: .2em; text-transform: uppercase; }
-
-  .contacto { background: var(--black); color: var(--white); padding: 120px 52px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; border-top: 1px solid var(--line); }
-  .contacto h2 { font-size: clamp(40px,5.5vw,80px); font-weight: 200; line-height: 1.05; letter-spacing: -.03em; margin-bottom: 64px; }
-  .contacto h2 strong { font-weight: 500; }
-  .contacto h2 em { font-style: normal; color: rgba(255,255,255,.22); }
-  .ct-links { display: flex; flex-direction: column; }
-  .ct-link { display: flex; align-items: center; gap: 20px; text-decoration: none; color: var(--white); font-size: 13px; letter-spacing: .04em; padding: 22px 0; border-bottom: 1px solid rgba(255,255,255,.08); font-weight: 300; transition: gap .3s; cursor: none; }
-  .ct-link:hover { gap: 32px; }
-  .ct-badge { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 9px; letter-spacing: .1em; flex-shrink: 0; font-weight: 500; }
-  .ct-right { display: flex; flex-direction: column; justify-content: flex-end; }
-  .ct-logo { opacity: .08; margin-bottom: 48px; }
-  .ct-logo img { width: 80px; height: auto; filter: invert(1); }
-  .ct-footer-text { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.28); line-height: 2.4; }
+  .contacto { background: var(--black); color: var(--white); padding: 120px 52px; border-top: 1px solid var(--line); }
+  .contacto h2 { font-size: clamp(36px,5vw,64px); font-weight: 200; line-height: 1.15; letter-spacing: -.03em; margin-bottom: 64px; max-width: 760px; }
+  .ct-links { display: flex; flex-direction: column; max-width: 520px; }
+  .ct-link { display: block; position: relative; text-decoration: none; color: var(--white); font-size: 16px; letter-spacing: .02em; font-weight: 300; padding: 22px 0; border-bottom: 1px solid rgba(255,255,255,.1); }
+  .ct-link::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 0; height: 1px; background: #fff; transition: width .35s; }
+  .ct-link:hover::after { width: 100%; }
 
   footer { background: var(--black); border-top: 1px solid rgba(255,255,255,.06); padding: 56px 52px 0; }
   .ft-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; padding-bottom: 48px; }
   .ft-label { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.4); font-weight: 500; margin-right: 8px; display: block; margin-bottom: 10px; }
   .ft-line { font-size: 11px; letter-spacing: .04em; color: rgba(255,255,255,.85); display: block; line-height: 2.1; }
   .ft-social { display: flex; gap: 18px; }
-  .ft-social a { color: rgba(255,255,255,.6); text-decoration: none; font-size: 9px; letter-spacing: .15em; text-transform: uppercase; transition: color .3s; cursor: none; }
+  .ft-social a { color: rgba(255,255,255,.6); text-decoration: none; font-size: 9px; letter-spacing: .15em; text-transform: uppercase; transition: color .3s; }
   .ft-social a:hover { color: #fff; }
   .ft-bottom { border-top: 1px solid rgba(255,255,255,.08); padding: 20px 0; display: flex; justify-content: space-between; }
   .ft-bottom span { font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.28); }
-  @media(max-width:900px){ .ft-bottom{flex-direction:column;gap:10px;text-align:center;} }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-  @keyframes scan { 0% { left: -100%; } 100% { left: 100%; } }
   .reveal { opacity: 0; transform: translateY(28px); transition: opacity .75s ease, transform .75s ease; }
   .reveal.vis { opacity: 1; transform: translateY(0); }
-  .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; } .d3 { transition-delay: .3s; } .d4 { transition-delay: .4s; }
+  .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; }
 
   @media(max-width:900px) {
-    nav { padding: 22px 24px; }
-    .nav-links { display: none; }
-    .hero { min-height: 78vh; }
-    .hero-left { padding: 100px 24px 56px; max-width: 100%; }
-    .hero-bottom { left: 24px; right: 24px; }
-    .slogan-c { font-size: clamp(40px, 12vw, 72px); }
-    .divider { grid-template-columns: 1fr 1fr; }
-    .divider-item:nth-child(2) { border-right: none; }
-    .divider-item:nth-child(3), .divider-item:nth-child(4) { border-top: 1px solid var(--line); }
-    .divider-item:nth-child(4) { border-right: none; }
+    nav { padding: 20px 24px; }
+    body { padding-top: 118px; }
+    .nav-logo-mark { font-size: 34px; }
+    .nav-logo-sub { font-size: 11px; }
+    .nav-info { font-size: 13px; }
     .section { padding: 80px 24px; }
-    .srv-grid { grid-template-columns: 1fr 1fr; }
-    .srv-item { padding: 40px 20px 40px 0; }
-    .srv-item:nth-child(2n) { border-right: none; }
-    .srv-item:nth-child(3), .srv-item:nth-child(4), .srv-item:nth-child(5) { border-top: 1px solid var(--line); }
+    .srv-row { grid-template-columns: 1fr; gap: 10px; padding: 32px 0; }
     .nos-wrap { grid-template-columns: 1fr; }
     .nos-left { padding: 80px 24px; border-right: none; border-bottom: 1px solid var(--line); }
     .nos-right { padding: 80px 24px; }
-    .proj-grid { grid-template-columns: 1fr; }
-    .contacto { grid-template-columns: 1fr; padding: 80px 24px; gap: 56px; }
-    footer { flex-direction: column; gap: 10px; padding: 24px; text-align: center; }
+    .contacto { padding: 80px 24px; }
+    footer { padding: 56px 24px 0; }
+    .ft-bottom { flex-direction: column; gap: 10px; text-align: center; }
   }
 </style>
 </head>
 <body>
 
-<div class="cursor" id="cur"></div>
-<div class="cursor-ring" id="ring"></div>
-
-<nav id="nav" class="scrolled">
+<nav id="nav">
   <a class="nav-logo" href="c3_arquitectura.html">
-    <img src="img/info_01.jpg" alt="C3 Logo" style="mix-blend-mode:multiply;">
-    <span class="nav-logo-mark">C3</span><span class="nav-logo-sub">Arquitectura</span>
+    <span class="nav-logo-mark">C3</span>
+    <span class="nav-logo-sub">Estudio de Arquitectura</span>
   </a>
   <a class="nav-info" href="c3_arquitectura.html">← Portfolio</a>
 </nav>
 
-<div style="height:88px;"></div>
-
-<div class="divider">
-  <div class="divider-item reveal"><span class="dot"></span>Anteproyecto</div>
-  <div class="divider-item reveal d1"><span class="dot"></span>Dirección de Obra</div>
-  <div class="divider-item reveal d2"><span class="dot"></span>Gestión Integral</div>
-  <div class="divider-item reveal d3"><span class="dot"></span>Mobiliario a Medida</div>
-</div>
-
 <section class="section" id="servicios">
   <div class="sec-label reveal">01 — Servicios</div>
   <h2 class="sec-title reveal d1">Lo que <strong>hacemos</strong></h2>
-  <div class="srv-grid">
-    <div class="srv-item reveal">
-      <div class="srv-n">01</div><div class="srv-ln"></div>
-      <div class="srv-name">Reformas</div>
-      <div class="srv-desc">Intervenciones integrales o de pequeña escala en viviendas. Transformamos tu espacio existente con criterio proyectual — desde un baño hasta una reforma total.</div>
+  <div class="srv-list">
+    <div class="srv-row reveal">
+      <span class="srv-n">01</span>
+      <span class="srv-name">Reformas</span>
+      <p class="srv-desc">Intervenciones integrales o puntuales en viviendas — desde un baño hasta una reforma total.</p>
     </div>
-    <div class="srv-item reveal d1">
-      <div class="srv-n">02</div><div class="srv-ln"></div>
-      <div class="srv-name">Proyecto</div>
-      <div class="srv-desc">Nos especializamos en vivienda unifamiliar, complejos familiares y edificios residenciales. Proyecto completo con documentación técnica, planos y detalles constructivos.</div>
+    <div class="srv-row reveal">
+      <span class="srv-n">02</span>
+      <span class="srv-name">Proyecto</span>
+      <p class="srv-desc">Vivienda unifamiliar, complejos familiares y edificios residenciales, con documentación técnica y de obra completa.</p>
     </div>
-    <div class="srv-item reveal d2">
-      <div class="srv-n">03</div><div class="srv-ln"></div>
-      <div class="srv-name">Dirección de Obra</div>
-      <div class="srv-desc">Conducción técnica y control de calidad durante la ejecución. Ofrecemos dirección de obra únicamente cuando el proyecto es de nuestra autoría.</div>
+    <div class="srv-row reveal">
+      <span class="srv-n">03</span>
+      <span class="srv-name">Dirección de Obra</span>
+      <p class="srv-desc">Conducción técnica y control de calidad durante la ejecución, exclusiva para proyectos de nuestra autoría.</p>
     </div>
-    <div class="srv-item reveal d3">
-      <div class="srv-n">04</div><div class="srv-ln"></div>
-      <div class="srv-name">Asesoramiento</div>
-      <div class="srv-desc">Te acompañamos en la compra, venta e inversión inmobiliaria. Evaluamos el potencial arquitectónico de cada unidad antes de que tomes la decisión.</div>
+    <div class="srv-row reveal">
+      <span class="srv-n">04</span>
+      <span class="srv-name">Asesoramiento</span>
+      <p class="srv-desc">Acompañamiento en compra, venta e inversión inmobiliaria, evaluando el potencial de cada unidad.</p>
     </div>
-    <div class="srv-item reveal d4">
-      <div class="srv-n">05</div><div class="srv-ln"></div>
-      <div class="srv-name">Representación<br>&amp; Anteproyecto</div>
-      <div class="srv-desc">Renders y visualización arquitectónica como servicio independiente. También ofrecemos un combo anteproyecto + representación: la idea completa del proyecto antes de comprometerse con la obra.</div>
+    <div class="srv-row reveal">
+      <span class="srv-n">05</span>
+      <span class="srv-name">Representación &amp; Anteproyecto</span>
+      <p class="srv-desc">Renders y visualización como servicio independiente, o combinados en un anteproyecto que define la idea antes de construir.</p>
     </div>
   </div>
 </section>
-
-
 
 <div class="nos-wrap" id="nosotros">
   <div class="nos-left">
     <div class="sec-label reveal">02 — Nosotros</div>
     <h2 class="sec-title reveal d1">Diseño,<br><strong>visualización</strong><br>y mercado.</h2>
     <p class="nos-text reveal d2">
-      Somos <strong>Guillermo</strong> y <strong>María Laura Camblong</strong>, arquitectos egresados de FADU UBA. Fundamos C3 con una visión compartida: que la buena arquitectura piensa el espacio, lo comunica con precisión y entiende el mercado.
-    </p>
-    <p class="nos-text reveal d3" style="margin-top:24px;">
-      <strong>Guillermo</strong> formó su mirada proyectual durante 7 años en ACF Arquitectos y complementó su formación con el Posgrado en Desarrollos Inmobiliarios (DPI) en FADU UBA. Hoy asesora también en compra, venta e inversión como agente en Coldwell Banker. Esa doble mirada —arquitectónica e inmobiliaria— es lo que nos distingue: entendemos el espacio y entendemos el mercado.
-    </p>
-    <p class="nos-text reveal d4" style="margin-top:24px;">
-      <strong>María Laura</strong> se especializó en visualización arquitectónica de alta calidad y estrategia proyectual. Trabaja con 3ds Max y Corona Renderer, e integra tecnologías de inteligencia artificial —RenderAir, Stable Diffusion— para producir imágenes de alto impacto que comunican valor y aceleran decisiones. Entiende el render como una herramienta comercial clave dentro del desarrollo arquitectónico e inmobiliario.
+      Somos <strong>Guillermo</strong> y <strong>María Laura Camblong</strong>, arquitectos egresados de FADU UBA. Guillermo aporta la mirada proyectual e inmobiliaria — formado en ACF Arquitectos y hoy asesor en Coldwell Banker — mientras María Laura lidera la visualización arquitectónica. Juntos entendemos el espacio, lo comunicamos con precisión y entendemos el mercado.
     </p>
   </div>
   <div class="nos-right">
-    <p style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px;color:var(--gray);">Guillermo Camblong</p>
-    <ul class="pilares">
-      <li class="pilar reveal">Arq. FADU UBA <span>→</span></li>
-      <li class="pilar reveal d1">7 años · ACF Arquitectos <span>→</span></li>
-      <li class="pilar reveal d2">Posgrado DPI · FADU UBA <span>→</span></li>
-      <li class="pilar reveal d3">Asesor · Coldwell Banker <span>→</span></li>
-      <li class="pilar reveal d4">Curso BIM · Revit Architecture <span>→</span></li>
-    </ul>
-    <p style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin-top:32px;margin-bottom:8px;color:var(--gray);">María Laura Camblong</p>
-    <ul class="pilares">
-      <li class="pilar reveal">Arq. FADU UBA · 2021 <span>→</span></li>
-      <li class="pilar reveal d1">Renderista · 3ds Max &amp; Corona Renderer <span>→</span></li>
-      <li class="pilar reveal d2">IA Aplicada · RenderAir &amp; Stable Diffusion <span>→</span></li>
-      <li class="pilar reveal d3">Visualización Arquitectónica <span>→</span></li>
-      <li class="pilar reveal d4">Estrategia Proyectual <span>→</span></li>
-    </ul>
+    <div class="credential reveal">
+      <p class="cred-name">Guillermo Camblong</p>
+      <p class="cred-detail">Arq. FADU UBA · 7 años en ACF Arquitectos · Posgrado DPI · Asesor en Coldwell Banker</p>
+    </div>
+    <div class="credential reveal d1">
+      <p class="cred-name">María Laura Camblong</p>
+      <p class="cred-detail">Arq. FADU UBA (2021) · Visualización arquitectónica · 3ds Max &amp; Corona Renderer · IA aplicada al render</p>
+    </div>
   </div>
 </div>
 
-
-
 <section class="contacto" id="contacto">
-  <div>
-    <h2 class="reveal">Hablemos<br><em>de tu</em><br><strong>proyecto.</strong></h2>
-    <div class="ct-links">
-      <a href="https://wa.me/5491155782599" class="ct-link reveal d1" target="_blank">
-        <div class="ct-badge">WA</div><span>+54 11 5578-2599</span>
-      </a>
-      <a href="https://instagram.com/c3_arquitectura" class="ct-link reveal d2" target="_blank">
-        <div class="ct-badge">IG</div><span>@c3_arquitectura</span>
-      </a>
-      <div class="ct-link reveal d3" style="cursor:default;">
-        <div class="ct-badge">AR</div><span>Buenos Aires, Argentina</span>
-      </div>
-    </div>
-  </div>
-  <div class="ct-right">
-    <div class="ct-logo" style="opacity:.12;filter:invert(1);">
-      <img src="img/info_02.jpg" alt="C3">
-    </div>
-    <div class="ct-footer-text reveal">
-      C3 Arquitectura<br>Proyecto · Dirección · Desarrollo<br>Buenos Aires · Argentina
-    </div>
+  <h2 class="reveal">Hablemos de tu próximo proyecto.</h2>
+  <div class="ct-links">
+    <a href="https://wa.me/5491155782599" class="ct-link reveal" target="_blank">WhatsApp — +54 11 5578-2599</a>
+    <a href="https://instagram.com/c3_arquitectura" class="ct-link reveal d1" target="_blank">Instagram — @c3_arquitectura</a>
+    <span class="ct-link reveal d2" style="cursor:default;">Buenos Aires, Argentina</span>
   </div>
 </section>
-
-
 
 <footer>
   <div class="ft-top">
@@ -303,27 +176,9 @@
   </div>
 </footer>
 
-
-
 <script>
 window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
-});
-function goTo(id) {
-  const el = document.getElementById(id);
-  if(el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-const cur = document.getElementById('cur');
-const ring = document.getElementById('ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove', e => {
-  mx=e.clientX; my=e.clientY;
-  cur.style.left=mx+'px'; cur.style.top=my+'px';
-});
-(function tick(){ rx+=(mx-rx)*.13; ry+=(my-ry)*.13; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(tick); })();
-document.querySelectorAll('a,.srv-item,.proj-card,.pilar').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cur.classList.add('hov');ring.classList.add('hov');});
-  el.addEventListener('mouseleave',()=>{cur.classList.remove('hov');ring.classList.remove('hov');});
 });
 const obs = new IntersectionObserver(entries=>{
   entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('vis'); });
